@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/users', function () {
-    return App\Models\Core\User::all();
-});
+Route::post('users', "UserController@store")->name('users.store');
+Route::get('users/{field}/{identifier}', "UserController@show")->name('users.show');
+Route::put('users/{field}/{identifier}', "UserController@update")->name('users.update');
+Route::delete('users/{field}/{identifier}', "UserController@destroy")->name('users.destroy');
+// Route::resource('users', "UserController", ["only" => ['index', 'get', 'edit', 'show', 'update']]);
