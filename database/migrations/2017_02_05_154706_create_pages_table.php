@@ -18,8 +18,9 @@ class CreatePagesTable extends Migration
             $table->integer('website_id')->nullable();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('keywords');
-            $table->text('description');
+            $table->string('view_file');
+            $table->text('keywords')->nullable();
+            $table->text('description')->nullable();
             $table->integer('viewable')->default(0);
             $table->integer('editable')->default(1);
             $table->timestamps();
