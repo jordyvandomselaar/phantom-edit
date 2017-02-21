@@ -17,5 +17,5 @@ class Website extends Model
         "scheme",
         "is_active",
         "multi_login"
-    ]
+    ];
 }
