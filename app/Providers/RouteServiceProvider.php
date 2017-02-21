@@ -40,6 +40,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapPhantomApiRoutes();
+
+        $this->mapPhantomRoutes();
     }
 
     /**
@@ -69,6 +71,16 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the phantom routes for the application.
+     */
+    public function mapPhantomRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace."\Website")
+            ->group(base_path('routes/phantom.php'));
     }
 
     /**
