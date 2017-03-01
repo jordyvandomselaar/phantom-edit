@@ -2,21 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use View;
+use App\Classes\Blade\PageMeta;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+/**
+ * Class Controller
+ * @package App\Http\Controllers
+ *
+ * @author Wouter van Marrum <w.vanmarrum@texemus.com>
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Get the config value from the phantom config
+     * Controller constructor.
      *
-     * @param      string  $key    The key
+     * @author Wouter van Marrum <w.vanmarrum@texemus.com>
+     */
+    public function __construct()
+    {
+        View::share('meta', new PageMeta());
+    }
+
+    /**
+     * Get the value for the config key.
      *
-     * @return     string  The value of the key
+     * @author Wouter van Marrum <w.vanmarrum@texemus.com>
+     * @param $key
+     *
+     * @return mixed
      */
     public function __get($key)
     {
