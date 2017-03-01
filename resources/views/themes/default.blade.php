@@ -1,16 +1,8 @@
-@inject('contentattr' , 'App\Classes\Blade\PageMeta')
-@extends(config('phantom.theme.folder').config('phantom.theme.layout'))
+@extends(config('phantom.theme.layout'))
 
-@section('meta')
-	{{ $contentattr->getInformation(
-			$page_content, 
-			array(
-				'author' => 'Wouter van Marrum',
-				'robots' => 4,
-			)
-		)
-	}}
-@endsection()
+@push('meta')
+    {!! $meta->getInformation($page_content) !!}
+@endpush
 
 @section('content')
 	@if ($page_content->content->count() > 0)
