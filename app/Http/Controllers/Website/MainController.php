@@ -8,18 +8,17 @@ use Request;
 use View;
 
 /**
- * Class    MainController
- * @package    App\Http\Controllers\Website
+ * Class MainController
+ * @package App\Http\Controllers\Website
+ * @author Wouter van Marrum <w.vanmarrum@texemus.com>
  */
 class MainController extends Controller
 {
-	/**
-	 * Gets the page content.
-	 *
-	 * @param      string  $route  The route
-	 *
-	 * @return     404 | View  The page content.
-	 */
+    /**
+     * @author Wouter van Marrum <w.vanmarrum@texemus.com>
+     * @param string $route
+     * @return mixed
+     */
 	public function getPageContent($route = "/")
 	{
 		$content = Website::with(['pages' => function($query) use ($route) {
