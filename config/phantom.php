@@ -3,6 +3,6 @@
 return [
 	'theme' => [
 		'folder' => 'themes.',
-		'layout' => 'layout'
+		'layout' => 'layouts.phantom'
 	]
 ];
