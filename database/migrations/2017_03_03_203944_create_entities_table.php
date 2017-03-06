@@ -13,8 +13,13 @@ class CreateEntitiesTable extends Migration
      */
     public function up()
     {
-        Schema::table('entities', function (Blueprint $table) {
-            //
+        Schema::create('entities', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('model')->nullable();
+            $table->string('views')->nullable();
+            $table->string('name_multiple')->nullable()->default('');
+            $table->string('name_single')->nullable();
         });
     }
 
@@ -25,8 +30,6 @@ class CreateEntitiesTable extends Migration
      */
     public function down()
     {
-        Schema::table('entities', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('entities');
     }
 }
