@@ -10,7 +10,6 @@
 |
 */
 
-Route::get('users', "AuthController@index")->name('users.index');
-Route::post('user', 'AuthController@post')->name('user.post');
-Route::put('user/{field}/{identifier}', "AuthController@put")->name('user.put');
-Route::get('user/{field}/{identifier}', "AuthController@get")->name('user.get');
+Route::post('users', "UserController@store")->name('users.store');
+Route::get('users/{field}/{identifier}', "UserController@show")->name('users.show');
+Route::put('users/{field}/{identifier}', "UserController@update")->name('users.update');
