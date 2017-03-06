@@ -79,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
     public function mapPhantomRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->namespace."\Website")
+            ->namespace($this->namespace.'\Website')
             ->group(base_path('routes/phantom.php'));
     }
 
@@ -88,9 +88,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapPhantomApiRoutes()
     {
-        Route::prefix('api/v1')
+        Route::prefix('api')
             ->middleware('api')
-            ->namespace($this->namespace."\Api")
+            ->namespace($this->namespace.'\Api')
             ->group(base_path('routes/phantom-api.php'));
     }
 }
